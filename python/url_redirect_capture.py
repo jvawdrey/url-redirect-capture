@@ -94,7 +94,7 @@ def createTable(connection, cursor, tableName):
     except psycopg2.Error as e:
         return(e.diag.message_primary)
 
-# create database table
+# extractURL list from database input table
 def extractURL(connection, cursor, tableName, columnName):
     # build sql query string
     sqlString = "SELECT " + columnName + " FROM (SELECT " + columnName + " FROM " + tableName + " GROUP BY 1) foo ORDER BY 1;"
